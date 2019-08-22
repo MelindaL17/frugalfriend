@@ -4,7 +4,6 @@ import NavBar from './components/layout/Navbar'
 import Dashboard from './components/dashboard/Dashboard'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
-import CreateRecord from './components/records/CreateRecord';
 import Uploader from './components/records/ImageUpload';
 import AllReceiptsImages from './components/records/AllReceiptsImages';
 import SingleReceiptDetail from './components/records/SingleReceiptDetail';
@@ -19,7 +18,6 @@ function App() {
           <Route exact path='/' component={Dashboard} />
           <Route path='/signIn' component={SignIn} />
           <Route path='/signUp' component={SignUp} />
-          <Route path='/create' component={CreateRecord}/>
           <Route path='/ImageUpload' component={Uploader}/>
           <Route path='/allReceipts' component={AllReceiptsImages} />
           <Route path='/receiptDetail/:id' component={SingleReceiptDetail}/>

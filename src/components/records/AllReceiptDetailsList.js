@@ -6,7 +6,7 @@ class AllReceiptDetailsList extends Component {
   
   render () {
     const{receiptDetails} = this.props
-    console.log(receiptDetails,'AllReceiptDetailsList Component')
+
     return (
       <div >
         <table className="striped-centered centered" >
