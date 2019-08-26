@@ -36,3 +36,13 @@ h1 {
 img.image-receipt {
   max-height: 25rem;
 }
+
+navbar {
+  width: 100%;
+  height: .2 em;
+  background-color: #eee;
+  color: gray;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row
+}

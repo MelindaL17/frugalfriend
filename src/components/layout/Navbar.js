@@ -9,7 +9,7 @@ const NavBar = (props) => {
   
   const links = auth.uid ? <SignedInkLinks profile={profile}/> : <SignedOutLinks/>
   return (
-    <nav id='navbar' className="light-blue accent-4">
+    <nav className="navbar">
       <div className="container">
         <Link to= "/" className="brand-logo left">
           Frugal Friend

@@ -13,7 +13,7 @@ class Dashboard extends Component {
     
     if (!auth.uid) return < Redirect to= '/signin'/>
     return (
-      <div>
+      <div className="receipt-component">
         <AllReceiptDetailsList receiptDetails={receiptDetails}/>
         <ImageUpload/>
       </div>
