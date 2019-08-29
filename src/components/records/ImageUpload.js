@@ -15,15 +15,15 @@ class Uploader extends Component {
     this.props.uploadReceipt(this.state)
   }
   render () {
-    const style = {
-      height: '50vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
+    // const style = {
+    //   height: '50vh',
+    //   display: 'flex',
+    //   flexDirection: 'column',
+    //   alignItems: 'center',
+    //   justifyContent: 'center'
+    // }
     return (
-      <div style={style}>
+      <div className="image-upload">
         <input type="file" id='image' onChange={this.handleChange}></input>
         <button onClick={this.handleUpload}>Upload</button>
       </div>

@@ -9,7 +9,7 @@ class AllReceiptDetailsList extends Component {
 
     return (
       <div className="receipt-detail-table" >
-        <table className="striped-centered centered" >
+        <table className="receipt-table" >
           <thead className="centered">
             <tr>
               <th>Date of Receipt</th>
