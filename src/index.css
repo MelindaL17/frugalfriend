@@ -93,7 +93,22 @@ tbody tr:nth-child(even) {
 td {
   font-family: 'Trebuchet MS';
   font-weight: 200;
-  font-size: 1.5vh
+  font-size: 2.5vh
+}
+
+button.material-icons {
+  border: none;
+  border-radius: 5pt;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin: 3pt
+}
+
+button.material-icons:hover {background-color: lightcoral}
+
+.button:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
 }
 
 .spending-Componenet {
