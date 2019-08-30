@@ -1,5 +1,5 @@
 * {
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 body {
@@ -104,11 +104,8 @@ button.material-icons {
   margin: 3pt
 }
 
-button.material-icons:hover {background-color: lightcoral}
-
-.button:active {
-  background-color: #3e8e41;
-  transform: translateY(4px);
+button.material-icons:hover {
+  background-color: lightcoral
 }
 
 .spending-Componenet {
@@ -130,13 +127,67 @@ button.material-icons:hover {background-color: lightcoral}
   margin-left:25px;
 }
 
-form {
-  padding: 20px;
-  margin-top: 60px;
+.upload-button {
+  width: 15%;
+  background-color: rgb(74, 158, 238);
+  border: none;
+  padding: 5px 17px;
+  min-height: 1em;
+  margin: 4px 2px;
+  border-radius: .28571429rem;
+  color: white;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.upload-button:hover {
+  color: #111;
 }
 
-form button,
-form h5 {
+ div.container-section-project-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Trebuchet MS';
+}
+
+.container-section-project-details p {
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 40px;
+}
+
+input.input-for-edit {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid 00b0ff;
+  border-radius: 4px;
+}
+
+.finish-edit-button {
+  width: 90%;
+  background-color: rgb(18, 179, 179);
+  border: none;
+  padding: 16px 32px;
+  text-decoration: none;
+  min-height: 1em;
+  margin: 4px 2px;
+  border-radius: .28571429rem;
+  color: white;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+form button, form h5 {
   margin: 20px 0;
 }
 
@@ -147,4 +198,62 @@ h1 {
 
 img.image-receipt {
   max-height: 25rem;
+  max-width: 25rem;
+}
+
+.login-signin-container {
+  display: flex;
+  justify-content: center;
+  font-family: 'Trebuchet MS';
+}
+
+input.login-signin-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid 00b0ff;
+  border-radius: 4px;
+}
+
+button.login-signin-button {
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  background: #2185d0 none;
+  color: white;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  margin: 0 .25em 0 0;
+  padding: .78571429em 1.5em .78571429em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .28571429rem;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+} 
+.inputfile + label {
+  font-size: 1em;
+  font-weight: 200;
+  color: rgb(74, 158, 238);
+  border: 2px solid currentColor;
+  display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+color:darkblue
 }
