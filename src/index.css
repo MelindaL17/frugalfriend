@@ -108,6 +108,10 @@ button.material-icons:hover {
   background-color: lightcoral
 }
 
+.image-upload-container {
+  display: flex;
+}
+
 .spending-Componenet {
   background: lightskyblue;
   float: left;
@@ -116,8 +120,34 @@ button.material-icons:hover {
   border-radius: 5px;
 }
 
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+} 
+.inputfile + label {
+  font-size: 1em;
+  font-weight:600;
+  color: rgb(74, 158, 238);
+  border: 2px groove currentColor;
+  display: inline-block;
+  margin: 5px;
+  margin-left: 10%;
+  border-radius: .28571429rem;
+  width: 25%;
+  height: 1em;
+  padding: 10px 15px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+color:darkblue
+}
+/* 
 .image-upload {
-  /* background: green; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,19 +155,20 @@ button.material-icons:hover {
   width: 60%;
   margin: 5px;
   margin-left:25px;
-}
+} */
 
 .upload-button {
-  width: 15%;
+  width: 10%;
   background-color: rgb(74, 158, 238);
   border: none;
-  padding: 5px 17px;
+  padding: 6px 17px;
   min-height: 1em;
+  height: 2em;
   margin: 4px 2px;
   border-radius: .28571429rem;
   color: white;
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 }
 .upload-button:hover {
@@ -235,25 +266,4 @@ button.login-signin-button {
   text-align: center;
   text-decoration: none;
   border-radius: .28571429rem;
-}
-
-.inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-} 
-.inputfile + label {
-  font-size: 1em;
-  font-weight: 200;
-  color: rgb(74, 158, 238);
-  border: 2px solid currentColor;
-  display: inline-block;
-}
-
-.inputfile:focus + label,
-.inputfile + label:hover {
-color:darkblue
 }
