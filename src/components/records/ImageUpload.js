@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {uploadReceipt} from '../../store/actions/receiptActions'
 
-
 class Uploader extends Component {
   
   handleChange = (event) => {
@@ -14,18 +13,16 @@ class Uploader extends Component {
     event.preventDefault()
     this.props.uploadReceipt(this.state)
   }
+  
   render () {
-    const style = {
-      height: '50vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
+
     return (
-      <div style={style}>
-        <input type="file" id='image' onChange={this.handleChange}></input>
-        <button onClick={this.handleUpload}>Upload</button>
+      <div className="image-upload-container">
+        <input type="file" className="inputfile" id='image' onChange={this.handleChange}></input>
+        <label htmlFor="image">
+          {!this.state ? <span>Choose a file....</span> : this.state.image.name }
+        </label>
+          <button className="upload-button" onClick={this.handleUpload}>Upload</button>
       </div>
     )
   }

@@ -15,8 +15,8 @@ class SingleReceiptDetail extends Component {
     if (!auth.uid) return < Redirect to= '/signin'/>
     if (receiptDetail) {
       return (
-      <div className="container section project-details">
-      <div className="card z-depth-0">
+      <div className="container-section-project-details">
+      <div className="receipt-detail-card">
         <p>Date of Receipt: {moment(receiptDetail.date, moment.ISO_8601).calendar()}</p>
         <p>Place: {receiptDetail.where}</p>
         <p>Total Spent: ${receiptDetail.totalAmount}</p>

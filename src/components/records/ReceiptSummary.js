@@ -28,13 +28,12 @@ class ReceiptSummary extends Component {
         <td>${receiptDetail.totalAmount}</td>
         <td>
           <Link to={`/receiptDetail/${receiptDetail.id}`}>
-          <button className="waves-effect waves-light btn-small" 
+          <button className="material-icons" 
           value={receiptDetail.id}
-          onClick={this.handleEdit}>Edit
+          onClick={this.handleEdit}> create
           </button>
           </Link>
-          <button className="waves-effect waves-light btn-small"
-          value={receiptDetail.id} onClick={this.handleChange}>Delete</button>
+          <button className="material-icons" value={receiptDetail.id} onClick={this.handleChange}>delete</button>
         </td>
       </tr>
       )

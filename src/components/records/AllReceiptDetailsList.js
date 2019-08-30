@@ -8,8 +8,8 @@ class AllReceiptDetailsList extends Component {
     const{receiptDetails} = this.props
 
     return (
-      <div >
-        <table className="striped-centered centered" >
+      <div className="receipt-detail-table" >
+        <table className="receipt-table" >
           <thead className="centered">
             <tr>
               <th>Date of Receipt</th>

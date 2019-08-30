@@ -33,7 +33,6 @@ class EditReceiptDetails extends Component {
     const {receiptDetailId} = this.props
     evt.preventDefault()
     this.props.updateReceipt(receiptDetailId, this.state)
-    console.log('ID:', receiptDetailId, 'THIS>STATE', this.state )
   }
   render(){
     return(

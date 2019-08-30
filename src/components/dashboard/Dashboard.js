@@ -5,6 +5,7 @@ import {compose} from 'redux'
 import { Redirect } from 'react-router-dom'
 import AllReceiptDetailsList from '../records/AllReceiptDetailsList';
 import ImageUpload from '../records/ImageUpload';
+import Spending from './Spending';
 
 class Dashboard extends Component {
 
@@ -14,8 +15,11 @@ class Dashboard extends Component {
     if (!auth.uid) return < Redirect to= '/signin'/>
     return (
       <div>
-        <AllReceiptDetailsList receiptDetails={receiptDetails}/>
-        <ImageUpload/>
+        <div className="dashboard-component">
+          <AllReceiptDetailsList receiptDetails={receiptDetails}/>
+          <Spending />
+        </div>
+          <ImageUpload/>
       </div>
     )
   }
