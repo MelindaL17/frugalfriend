@@ -6,7 +6,6 @@ import {editReceiptDetails}  from '../../store/actions/receiptActions'
 class EditReceiptDetails extends Component {
   constructor(props) {
     super(props)
-    console.log("EDIT!", props)
     this.state = {
       // date: '',
       where: '',

@@ -11,7 +11,7 @@ class Dashboard extends Component {
 
   render() {
     const { receiptDetails, auth } = this.props
-    
+    console.log(auth.uid,"auth")
     if (!auth.uid) return < Redirect to= '/signin'/>
     return (
       <div>

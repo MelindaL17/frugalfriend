@@ -31,7 +31,6 @@ exports.userJoined = functions.auth.user().onCreate(user => {
 app.post('/scan', async(req,res,next)=> {
   const imageUrl = req.body
   const stringedUrl = convertUrl(imageUrl)
-  console.log('APIKEY', apiKey)
 
   try {
     const postData = {
@@ -68,10 +67,11 @@ const createReceiptRecord = (receiptDetail => {
 exports.imageUpload = functions.firestore.document('imageUpload/{imageupload}').onCreate(async doc => {
   try {
     const imageData = doc.data()
-
+    console.log('imageURL', imageData.authorId)
     const taggunDetails = await axios.post('https://us-central1-frugalfriend-51334.cloudfunctions.net/api/scan',imageData.url)
     const receiptDetails = {
       imageUploadId: doc.id,
+      authorId: imageData.authorId,
       totalAmount: taggunDetails.data.totalAmount.data,
       date: taggunDetails.data.date.data === undefined ? 'Date not found': taggunDetails.data.date.data,
       where: taggunDetails.data.merchantName.data === undefined ? 'Not Available': formatting(taggunDetails.data.merchantName.data),
@@ -82,6 +82,8 @@ exports.imageUpload = functions.firestore.document('imageUpload/{imageupload}').
     console.log('error in the imageUpload function:', error)
   }
 })
+
+
 
 //helper functions
 const convertUrl = (imageUrl) => {
