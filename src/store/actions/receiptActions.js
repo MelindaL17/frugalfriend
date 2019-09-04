@@ -1,17 +1,27 @@
 const axios = require('axios')
 
 export const getAllReceipts = () => {
-  return async(dispatch, getState, {getFirebase,getFirestore}) => {
+  return async(dispatch, getState, {getFirebase, getFirestore}) => {
     try {
       const firebase = await getFirebase()
       const allReceipts = await firebase.storage().ref(`receipts/`).listAll()
-      console.log(allReceipts)
       dispatch ({type: 'GET_ALL_RECEIPTS', allReceipts})
     } catch (error) {
       console.log(error)
     }
   }
 }
+
+// export const getAllUserReceipt = (userId) => {
+//   return async (dispatch, getState, {getFirebase, getFirestore}) => {
+//     try {
+//       const firestore = await getFirestore()
+//       const receiptDetailRef = await firestore.collection('receiptDetails').doc(receiptId).get()
+//     } catch (error) {
+      
+//     }
+//   }
+// }
 
 export const uploadReceipt = (receipt) => {
   return async(dispatch, getState, {getFirebase, getFirestore}) => {
@@ -55,12 +65,11 @@ export const deleteReceiptDetails = (receiptId) => {
   }
 }
 
-export const editReceiptDetails = (reciptId, updatedReceiptInfo) => {
+export const editReceiptDetails = (receiptId, updatedReceiptInfo) => {
   return async(dispatch, getState, {getFirebase, getFirestore}) => {
     try {
       const firestore = await getFirestore()
-      const receiptDetailRef = await firestore.collection('receiptDetails').doc(reciptId).update(updatedReceiptInfo)
-      
+      const receiptDetailRef = await firestore.collection('receiptDetails').doc(receiptId).update(updatedReceiptInfo)
      
       console.log('UPDATED RECEIPT DETAILS:',updatedReceiptInfo, receiptDetailRef)
       dispatch({type:'EDIT_RECEIPT', updatedReceiptInfo})
@@ -74,7 +83,6 @@ export const editReceiptDetails = (reciptId, updatedReceiptInfo) => {
 export const scanReceipt = (imageUrl) => {
   return async (dispatch, getState, {getFirebase, getFirestore}) => {
     try {
-      console.log('IMAGE URL PASSED IN',imageUrl)
       const scannedReceiptData = await axios.post('https://us-central1-frugalfriend-51334.cloudfunctions.net/api/scan',  imageUrl)
       dispatch({type: 'SCANNED RECEIPT', scannedReceiptData})
     } catch (error) {
