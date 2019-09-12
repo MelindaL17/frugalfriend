@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { firestoreConnect } from 'react-redux-firebase' //binds to react
-import {compose} from 'redux'
+// import { firestoreConnect } from 'react-redux-firebase' //binds to react
+// import {compose} from 'redux'
 import { Redirect } from 'react-router-dom'
 import moment from 'moment'
 
@@ -20,16 +20,19 @@ class Spending extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    records: state.firestore.ordered.records,
+    
     auth: state.firebase.auth,
     receiptDetails: state.firestore.ordered.receiptDetails
   }
 }
-const authID = 'ji'
+// const authID = 'ji'
 
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect([
-    {collection: 'receiptDetails', equalTo: ['authorId', authID]}
-  ])
-)(Spending)
+// export default compose(
+//   connect(mapStateToProps),
+//   firestoreConnect([
+//     {collection: 'receiptDetails', equalTo: ['authorId', authID]}
+//   ])
+// )(Spending)
+
+export default 
+  connect(mapStateToProps)(Spending)
