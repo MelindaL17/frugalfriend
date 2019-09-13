@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import { firestoreConnect } from 'react-redux-firebase' //binds to react
+import { firestoreConnect } from 'react-redux-firebase'
 import {compose} from 'redux'
 import { Redirect } from 'react-router-dom'
 import AllReceiptDetailsList from '../records/AllReceiptDetailsList';
@@ -8,10 +8,15 @@ import ImageUpload from '../records/ImageUpload';
 import Spending from './Spending';
 
 class Dashboard extends Component {
-
+  constructor (props) {
+    super(props)
+      this.state = {
+        userId: this.props.auth.uid
+      }
+    }
+    
   render() {
     const { receiptDetails, auth } = this.props
-    console.log(auth.uid,"auth")
     if (!auth.uid) return < Redirect to= '/signin'/>
     return (
       <div>
@@ -27,15 +32,19 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    records: state.firestore.ordered.records,
     auth: state.firebase.auth,
     receiptDetails: state.firestore.ordered.receiptDetails
   }
 }
 
+
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([
-    {collection: 'receiptDetails', orderBy: ['date', 'desc']}
+  firestoreConnect((props) => [
+    {
+      collection: 'receiptDetails', 
+        orderBy: ['date', 'desc'] 
+        ,where: [ 'authorId','==', !props.auth.uid ? null: props.auth.uid]
+    }
   ])
 )(Dashboard)

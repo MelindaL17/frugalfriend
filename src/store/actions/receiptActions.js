@@ -12,17 +12,6 @@ export const getAllReceipts = () => {
   }
 }
 
-// export const getAllUserReceipt = (userId) => {
-//   return async (dispatch, getState, {getFirebase, getFirestore}) => {
-//     try {
-//       const firestore = await getFirestore()
-//       const receiptDetailRef = await firestore.collection('receiptDetails').doc(receiptId).get()
-//     } catch (error) {
-      
-//     }
-//   }
-// }
-
 export const uploadReceipt = (receipt) => {
   return async(dispatch, getState, {getFirebase, getFirestore}) => {
     try {
@@ -71,7 +60,7 @@ export const editReceiptDetails = (receiptId, updatedReceiptInfo) => {
       const firestore = await getFirestore()
       const receiptDetailRef = await firestore.collection('receiptDetails').doc(receiptId).update(updatedReceiptInfo)
      
-      console.log('UPDATED RECEIPT DETAILS:',updatedReceiptInfo, receiptDetailRef)
+      console.log('UPDATED RECEIPT DETAILS:',updatedReceiptInfo,'**', receiptDetailRef)
       dispatch({type:'EDIT_RECEIPT', updatedReceiptInfo})
     } catch (error) {
       dispatch ({type: 'EDIT_RECEIPT_ERROR', error})

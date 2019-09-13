@@ -1,4 +1,6 @@
-const initialState = {}
+const initialState = {
+  receiptDetails: []
+}
 
 const receiptReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,7 +17,7 @@ const receiptReducer = (state = initialState, action) => {
         return action.scannedReceiptData.data
     case 'SCAN_RECEIPT_ERROR':
       console.log('SCAN_RECEIPT_ERROR', action.error)
-      return state
+      return action.receiptDetailDoc
     case 'EDIT_RECEIPT':
       return state
     case 'EDIT_RECEIPT_ERROR':
