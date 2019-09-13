@@ -8,26 +8,6 @@ const cors = require('cors');
 app.use(cors({ origin: true }));
 const apiKey = require('./secrets') 
 
-const createNotification = (notification => {
-  return admin.firestore().collection('notifications')
-  .add(notification)
-  .then(doc => console.log('notification added', doc))
-})
-
-//create a trigger when a user is created using the auth service
-exports.userJoined = functions.auth.user().onCreate(user => {
-  return admin.firestore().collection('users')
-  .doc(user.uid).get().then(doc => {
-    const newUser = doc.data()
-    const notification = {
-      content: 'New member has joined',
-      user: `${newUser.firstName} ${newUser.lastName}`,
-      time: admin.firestore.FieldValue.serverTimestamp()
-    }
-    return createNotification(notification)
-  })
-})
-
 app.post('/scan', async(req,res,next)=> {
   const imageUrl = req.body
   const stringedUrl = convertUrl(imageUrl)
