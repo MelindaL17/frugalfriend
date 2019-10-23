@@ -8,7 +8,7 @@ const NavBar = (props) => {
   const { auth, profile } = props
 
   return (
-    <nav>
+    <nav className='wrapper'>
       <div className="navbar">
         <Link className="logo" to= "/">
           Frugal Friend
