@@ -6,8 +6,7 @@ const Form = (props) => (
   <form onSubmit={props.handleSubmit}>
     {/* <input name='date'type='text' onChange={props.handleChange} value={moment(props.date, moment.ISO_8601).calendar()} /> */}
 
-      <label> Place </label>
-      <input className="input-for-edit" name='where' type='text' onChange={props.handleChange} value={props.where} />
+      <input className="input-for-edit" placeholder="Email" name='where' type='text'  onChange={props.handleChange} value={props.where} />
 
       <label> Total Spent </label>
       <input className="input-for-edit" name='totalAmount' type='text' onChange={props.handleChange} value={props.totalAmount} />
@@ -18,4 +17,3 @@ const Form = (props) => (
 )
 
 export default Form
-// font-family: 'Trebuchet MS';

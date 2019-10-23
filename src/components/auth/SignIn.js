@@ -13,13 +13,13 @@ class SignIn extends Component {
     }
   }
   
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     })
   }
   
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault()
     this.props.signIn(this.state)
   }
@@ -33,13 +33,11 @@ class SignIn extends Component {
         <form onSubmit={this.handleSubmit}>
           <h5>Sign In</h5>
           <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input className="login-signin-input" type="email" id="email" onChange={this.handleChange}/>
+            <input className="login-signin-input" placeholder="Email" type="email" id="email" onChange={this.handleChange}/>
           </div>
           
           <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input className="login-signin-input" type="password" id="password" onChange={this.handleChange}/>
+            <input className="login-signin-input" placeholder="Password" type="password" id="password" onChange={this.handleChange}/>
           </div>
           <div className="input-field">
             <button className="login-signin-button">Login</button>
