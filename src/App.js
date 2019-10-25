@@ -12,7 +12,6 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <h1>
         <NavBar/>
         <Switch>
           <Route exact path='/' component={Dashboard} />
@@ -22,7 +21,6 @@ function App() {
           <Route path='/allReceipts' component={AllReceiptsImages} />
           <Route path='/receiptDetail/:id' component={SingleReceiptDetail}/>
         </Switch>
-      </h1>
     </div>
     </BrowserRouter>
   );

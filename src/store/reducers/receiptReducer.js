@@ -1,5 +1,6 @@
 const initialState = {
-  receiptDetails: []
+  receiptDetails: [],
+  status: ''
 }
 
 const receiptReducer = (state = initialState, action) => {
@@ -10,8 +11,8 @@ const receiptReducer = (state = initialState, action) => {
        console.log('The created RECEIPT:', action.storedMetaData)
        return state
     case 'CREATE_RECEIPT_ERROR':
-      console.log('create RECEIPT error', action.err)
-      return state
+      console.log('create RECEIPT error', action.errpr)
+      return {status: action.error}
     case 'SCANNED RECEIPT':
         console.log('SCANNED RECEIPT', action.scannedReceiptData.data)
         return action.scannedReceiptData.data

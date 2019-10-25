@@ -8,7 +8,7 @@ body {
   font-family: sans-serif;
 }
 
-.wrapper {
+.nav-wrapper {
   height: 4.5em;
   width: 100%;
   background-color: #00b0ff;
@@ -92,15 +92,14 @@ th {
   font-family: 'Trebuchet MS';
   font-weight: bold;
 }
-
-tbody tr:nth-child(even) {
-  background:#ECF0F1;
-}
-
 td {
   font-family: 'Trebuchet MS';
   font-weight: 200;
   font-size: 2.5vh
+}
+
+tbody tr:nth-child(even) {
+  background:#ECF0F1;
 }
 
 button.material-icons {
@@ -117,6 +116,8 @@ button.material-icons:hover {
 
 .image-upload-container {
   display: flex;
+  align-items: center;
+  
 }
 
 .spending-Componenet {
@@ -134,11 +135,12 @@ button.material-icons:hover {
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
-} 
+}
+
 .inputfile + label {
   font-size: 1em;
   font-weight:600;
-  color: rgb(74, 158, 238);
+  color: #3E6680;
   border: 2px groove currentColor;
   display: inline-block;
   margin: 5px;
@@ -151,35 +153,27 @@ button.material-icons:hover {
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-color:darkblue
+color:#00b0ff;
+border-color: #3E6680;
 }
-/* 
-.image-upload {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  float: left;
-  width: 60%;
-  margin: 5px;
-  margin-left:25px;
-} */
 
 .upload-button {
   width: 10%;
-  background-color: rgb(74, 158, 238);
+  background-color: #00b0ff;
   border: none;
   padding: 6px 17px;
   min-height: 1em;
   height: 2em;
   margin: 4px 2px;
   border-radius: .28571429rem;
-  color: white;
+  color:#00487C;
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight: 600;
   cursor: pointer;
 }
+
 .upload-button:hover {
-  color: #111;
+  background: #4BB3FD;
 }
 
  div.container-section-project-details {
@@ -196,9 +190,8 @@ color:darkblue
 
 form {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 40px;
+  flex-wrap: wrap;
+  margin-bottom: .5em;
 }
 
 input.input-for-edit {
@@ -230,8 +223,12 @@ form button, form h5 {
 }
 
 h1 {
-  font-size: 1rem;
-  margin: auto;
+  text-align: center;
+  width: 100%;
+  color: #111;
+  font-size: 1.5em;
+  font-weight: lighter;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 img.image-receipt {
@@ -239,10 +236,60 @@ img.image-receipt {
   max-width: 25rem;
 }
 
+
+/* Signup and Login Design*/
 .login-signin-container {
+  height: 80vh;
+  width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-family: 'Trebuchet MS';
+  align-items: center;
+}
+
+.sign-up-wrapper {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 50px #555;
+  background-color: #ffffff;
+}
+
+.firstName {
+  margin-right: 1%;
+}
+
+.lastName {
+  margin-left: 1%;
+}
+
+.firstName,
+.lastName,
+.email,
+.password {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+
+.firstName,
+.lastName {
+  width: 49%;
+}
+
+.email,
+.password {
+  width: 100%;
+}
+
+label {
+  font-size: 0.8em;
+  margin-bottom: 0.25em;
+  color: #222;
+  font-weight: lighter;
 }
 
 button.login-signin-button {
@@ -256,6 +303,7 @@ button.login-signin-button {
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   margin: 0 .25em 0 0;
   padding: .78571429em 1.5em .78571429em;
+  width: 100%;
   text-transform: none;
   text-shadow: none;
   font-weight: 700;
@@ -266,6 +314,9 @@ button.login-signin-button {
   border-radius: .28571429rem;
 }
 
+button.login-signin-button:hover {
+  background: #279AF1
+}
 
 input {
   padding: 13px 15px;
@@ -286,7 +337,7 @@ input.error {
 }
 .errorMessage {
   color: red;
-  font-size: 0.75em;
+  font-size: .95em;
   display: relative;
   margin-bottom: .5em;
 }
