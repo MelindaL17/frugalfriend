@@ -17,18 +17,21 @@ class Uploader extends Component {
       [event.target.id]: event.target.files[0],
       imageSelected: true,
       errorMessage: ""
-    });
-    console.log("handlechange", event.target);
+    })
   };
   
-  handleUpload = event => {
+  handleUpload = async event => {
     event.preventDefault();
     if(this.state.image) {
-      this.props.uploadReceipt(this.state);
-      this.setState({ 
-        imageSelected: false,
-        errorMessage: ''
-      });
+      await this.props.uploadReceipt(this.state)
+      if(this.props.receipt.status.length > 0) {
+        this.setState({errorMessage: "Unable to Upload Receipt"})
+      } else {
+        this.setState({ 
+          imageSelected: false,
+          errorMessage: ''
+        })
+      }
     } else {
       this.setState({
         errorMessage: "No receipt selected"
@@ -68,7 +71,7 @@ class Uploader extends Component {
 
 const mapStateToProps = state => {
   return {
-    receipt: state.receiptReducer.allReceipts
+    receipt: state.receiptReducer
   };
 };
 

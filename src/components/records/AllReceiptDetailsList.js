@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReceiptSummary from './ReceiptSummary'
 
-
 class AllReceiptDetailsList extends Component {
   
   render () {

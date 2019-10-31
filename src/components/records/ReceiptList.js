@@ -25,8 +25,6 @@ class ReceiptList extends Component {
   }
 }
 
-//store result in database
-
 const mapDispatchToProps = (dispatch) => {
   return {
     scanReceipt: (imageUrl) => dispatch(scanReceipt(imageUrl))

@@ -2,12 +2,12 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Form from './Form'
 import {editReceiptDetails}  from '../../store/actions/receiptActions'
-
+import moment from 'moment'
 class EditReceiptDetails extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // date: '',
+      date: '',
       where: '',
       totalAmount: ''
     }
@@ -17,15 +17,16 @@ class EditReceiptDetails extends Component {
   
   componentDidMount () {
     this.setState({
-      date: this.props.receiptDetail.date,
+      date:moment(this.props.receiptDetail.date, moment.ISO_8601).format('L'),
       where: this.props.receiptDetail.where,
       totalAmount: this.props.receiptDetail.totalAmount
     })
   }
   handleChange (evt) {
-    this.setState({
-      [evt.target.name]: evt.target.value
-    })
+    console.log(evt.target.value)
+      this.setState({
+        [evt.target.name]: evt.target.value
+      })
   }
   
   handleSubmit (evt) {

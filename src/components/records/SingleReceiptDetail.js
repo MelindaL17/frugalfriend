@@ -17,7 +17,7 @@ class SingleReceiptDetail extends Component {
       return (
       <div className="container-section-project-details">
       <div className="receipt-detail-card">
-        <p>Date of Receipt: {moment(receiptDetail.date, moment.ISO_8601).calendar()}</p>
+        <p>Date of Receipt: {moment(receiptDetail.date, moment.ISO_8601).format('L')}</p>
         <p>Place: {receiptDetail.where}</p>
         <p>Total Spent: ${receiptDetail.totalAmount}</p>
         < img className="image-receipt"src={receiptDetail.url} alt='http://via.placeholder.com/400x300' />
