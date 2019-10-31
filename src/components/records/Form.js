@@ -1,12 +1,13 @@
 import React from 'react'
 
-
 const Form = (props) => (
-<div className='form-container'>
-  <form onSubmit={props.handleSubmit}>
-    {/* <input name='date'type='text' onChange={props.handleChange} value={moment(props.date, moment.ISO_8601).calendar()} /> */}
+  <div className='form-container'>
 
-      <input className="input-for-edit" placeholder="Email" name='where' type='text'  onChange={props.handleChange} value={props.where} />
+  <form onSubmit={props.handleSubmit}>
+  <label>Date</label>
+    <input className="input-for-edit" name='date'type='text' onChange={props.handleChange} value={props.date} />
+    <label>Place</label>
+      <input className="input-for-edit" placeholder="Email" name='where' type='text' onChange={props.handleChange} value={props.where} />
 
       <label> Total Spent </label>
       <input className="input-for-edit" name='totalAmount' type='text' onChange={props.handleChange} value={props.totalAmount} />

@@ -1,10 +1,11 @@
 const functions = require('firebase-functions') 
 const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase) //allows use of firebase service
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 const axios = require('axios')
-const cors = require('cors');
+const cors = require('cors')
+const moment = require('moment')
 app.use(cors({ origin: true }));
 const apiKey = require('./secrets') 
 
@@ -53,10 +54,12 @@ exports.imageUpload = functions.firestore.document('imageUpload/{imageupload}').
       imageUploadId: doc.id,
       authorId: imageData.authorId,
       totalAmount: taggunDetails.data.totalAmount.data,
-      date: taggunDetails.data.date.data === undefined ? 'Date not found': taggunDetails.data.date.data,
+      date: taggunDetails.data.date.data === undefined ? moment(new Date().toISOString()).format():
+      moment(taggunDetails.data.date.data, moment.ISO_8601).format(),
       where: taggunDetails.data.merchantName.data === undefined ? 'Not Available': formatting(taggunDetails.data.merchantName.data),
       url: imageData.url
     }
+    console.log('DATE', receiptDetails.date)
     return createReceiptRecord(receiptDetails)
   } catch (error) {
     console.log('error in the imageUpload function:', error)
