@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 // import { firestoreConnect } from 'react-redux-firebase' //binds to react
 // import {compose} from 'redux'
 import { Redirect } from 'react-router-dom'
-import moment from 'moment'
+// import moment from 'moment'
 
 class Spending extends Component {
   render() {
@@ -12,7 +12,7 @@ class Spending extends Component {
     if (!auth.uid) return < Redirect to= '/signin'/>
     return (
       <div className="spending-Componenet">Place Holder Spending Component
-      <p>Spending in {moment().format("YYYY")}: </p>
+
       </div>
     )
   }
