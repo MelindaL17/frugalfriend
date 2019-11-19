@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import moment from 'moment'
 import {connect} from 'react-redux'
 import {deleteReceiptDetails} from '../../store/actions/receiptActions'
+import {Icon} from 'semantic-ui-react'
 
 class ReceiptSummary extends Component {
   constructor (props) {
@@ -11,28 +12,27 @@ class ReceiptSummary extends Component {
       toggleEditing: false
     }
   }
-  handleChange = (event) => {
+  handleChange = (event, data) => {
     event.preventDefault()
-    this.props.deleteReceipt(event.target.value)
+    this.props.deleteReceipt(data.value)
   }
   
   render () {
     const {receiptDetail} = this.props
     
     return (
-      <tr>
-        <td>{moment(receiptDetail.date).format('l')}</td>
-        <td>{receiptDetail.where}</td>
-        <td>${receiptDetail.totalAmount}</td>
-        <td>
+      <div className="receipt-row">
+        <span className="cell">{moment(receiptDetail.date, moment.ISO_8601).format('L')}</span>
+        <span className="cell">{receiptDetail.where}</span>
+        <span className="cell">${receiptDetail.totalAmount}</span>
+        <span className="cell">
           <Link to={`/receiptDetail/${receiptDetail.id}`}>
-          <button className="material-icons" 
-          value={receiptDetail.id}> create
-          </button>
+            <Icon name="edit outline" color="blue" size="large"/>
           </Link>
-          <button className="material-icons" value={receiptDetail.id} onClick={this.handleChange}>delete</button>
-        </td>
-      </tr>
+          <Icon name="delete" color="red" value={receiptDetail.id} link onClick={this.handleChange} size="large"/>
+        </span>
+        
+      </div>
       )
   }
 }

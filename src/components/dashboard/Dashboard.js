@@ -19,12 +19,12 @@ class Dashboard extends Component {
     const { receiptDetails, auth } = this.props
     if (!auth.uid) return < Redirect to= '/signin'/>
     return (
-      <div>
+      <div className="main-container" >
         <div className="dashboard-component">
           <AllReceiptDetailsList receiptDetails={receiptDetails}/>
-          <Spending />
-        </div>
           <ImageUpload/>
+        </div>
+          <Spending />
       </div>
     )
   }

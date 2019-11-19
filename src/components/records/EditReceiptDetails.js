@@ -22,8 +22,8 @@ class EditReceiptDetails extends Component {
       totalAmount: this.props.receiptDetail.totalAmount
     })
   }
+  
   handleChange (evt) {
-    console.log(evt.target.value)
       this.setState({
         [evt.target.name]: evt.target.value
       })
@@ -33,10 +33,14 @@ class EditReceiptDetails extends Component {
     const {receiptDetailId} = this.props
     evt.preventDefault()
     this.props.updateReceipt(receiptDetailId, this.state)
+    this.setState({
+      date: moment(this.state.date, moment.ISO_8601).format('L')
+    })
   }
+
   render(){
     return(
-      <Form 
+      <Form
     {...this.state}
     handleChange={this.handleChange}
     handleSubmit={this.handleSubmit}/>
