@@ -54,7 +54,7 @@ exports.imageUpload = functions.firestore.document('imageUpload/{imageupload}').
       imageUploadId: doc.id,
       authorId: imageData.authorId,
       totalAmount: taggunDetails.data.totalAmount.data,
-      date: taggunDetails.data.date.data === undefined ? moment(new Date().toISOString()).format():
+      date: taggunDetails.data.date.data === undefined ? moment(new Date().toISOString(),).format():
       moment(taggunDetails.data.date.data, moment.ISO_8601).format(),
       where: taggunDetails.data.merchantName.data === undefined ? 'Not Available': formatting(taggunDetails.data.merchantName.data),
       url: imageData.url

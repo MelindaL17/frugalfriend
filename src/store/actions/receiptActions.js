@@ -1,3 +1,4 @@
+import moment from 'moment'
 const axios = require('axios')
 
 export const getAllReceipts = () => {
@@ -57,10 +58,14 @@ export const deleteReceiptDetails = (receiptId) => {
 export const editReceiptDetails = (receiptId, updatedReceiptInfo) => {
   return async(dispatch, getState, {getFirebase, getFirestore}) => {
     try {
+      console.log('EDIT FUNCTION', updatedReceiptInfo)
+      const formattedDate = moment(updatedReceiptInfo.date, 'MM/DD/YYYY', false).format()
+      updatedReceiptInfo.date = formattedDate
+      console.log('FORMATTED DATE', updatedReceiptInfo.date)
       const firestore = await getFirestore()
       const receiptDetailRef = await firestore.collection('receiptDetails').doc(receiptId).update(updatedReceiptInfo)
      
-      console.log('UPDATED RECEIPT DETAILS:',updatedReceiptInfo,'**', receiptDetailRef)
+      console.log('UPDATED RECEIPT DETAILS:',updatedReceiptInfo, receiptDetailRef)
       dispatch({type:'EDIT_RECEIPT', updatedReceiptInfo})
     } catch (error) {
       dispatch ({type: 'EDIT_RECEIPT_ERROR', error})
