@@ -1,20 +1,43 @@
-import React from 'react'
+import React from "react";
+import { Button } from "semantic-ui-react";
 
-const Form = (props) => (
-  <div className='form-container'>
+const Form = props => (
+  <div>
+    <form className="receipt-edit-row" onSubmit={props.handleSubmit}>
+      <span className="input-span-cell">
+        {/* <label>Date</label> */}
+        <input
+          name="date"
+          type="text"
+          onChange={props.handleChange}
+          value={props.date}
+        />
+      </span>
 
-  <form onSubmit={props.handleSubmit}>
-  <label>Date</label>
-    <input className="input-for-edit" name='date'type='text' onChange={props.handleChange} value={props.date} />
-    <label>Place</label>
-      <input className="input-for-edit" placeholder="Email" name='where' type='text' onChange={props.handleChange} value={props.where} />
+      <span className="input-span-cell">
+        {/* <label>Place</label> */}
+        <input
+          placeholder="Email"
+          name="where"
+          type="text"
+          onChange={props.handleChange}
+          value={props.where}
+        />
+      </span>
 
-      <label> Total Spent </label>
-      <input className="input-for-edit" name='totalAmount' type='text' onChange={props.handleChange} value={props.totalAmount} />
+      <span className="input-span-cell">
+        {/* <label> Total Spent </label> */}
+        <input
+          name="totalAmount"
+          type="text"
+          onChange={props.handleChange}
+          value={props.totalAmount}
+        />
+      </span>
+      <Button positive color="blue" > Done </Button>
 
-    <button className="finish-edit-button"type='submit'> Done Editing</button>
-  </form>
-</div>
-)
+    </form>
+  </div>
+);
 
-export default Form
+export default Form;

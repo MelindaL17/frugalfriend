@@ -30,9 +30,9 @@ class EditReceiptDetails extends Component {
   }
   
   handleSubmit (evt) {
-    const {receiptDetailId} = this.props
+    const receiptDetail = this.props.receiptDetail
     evt.preventDefault()
-    this.props.updateReceipt(receiptDetailId, this.state)
+    this.props.updateReceipt(receiptDetail.id, this.state)
     this.setState({
       date: moment(this.state.date, moment.ISO_8601).format('L')
     })
@@ -41,7 +41,7 @@ class EditReceiptDetails extends Component {
   render(){
     return(
       <Form
-    {...this.state}
+      {...this.state}
     handleChange={this.handleChange}
     handleSubmit={this.handleSubmit}/>
     )

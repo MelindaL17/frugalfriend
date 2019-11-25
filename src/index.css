@@ -9,8 +9,9 @@ body {
 }
 
 .main-container {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 2fr 1fr
+  
 }
 
 .nav-wrapper {
@@ -71,23 +72,19 @@ li {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  /* margin: 10px; */
-  width: 90%;
-
 }
 
 .receipt-detail-table-container {
   display: grid;
-  margin: 5px;
+  margin: 10px;
   margin-bottom: 20px;
-}
-
-
-.receipt-detail-table-container {
-	-webkit-box-shadow: 0 10px 10px -10px black;
+  -webkit-box-shadow: 0 10px 10px -10px black;
 	   -moz-box-shadow: 0 10px 10px -10px black;
 	        box-shadow: 0 10px 10px -10px black;
 }
+
+
+
 
 .grid-header {
   display: grid;
@@ -112,8 +109,15 @@ li {
   background: #D9E9F4;
 }
 
+.receipt-edit-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  height: 60px;
+  align-items: center;
+}
+
 .cell {
-  margin-left: 5px;
+  margin-left: 20px;
 }
 
 .image-upload-container {
@@ -121,13 +125,10 @@ li {
   justify-content: center;
 }
 
-
-.spending-Componenet {
+.spending-Component {
   background: lightskyblue;
   float: left;
-  width: 35%;
-  margin: 5px;
-  max-height: 500px;
+  margin: 10px;
   border-radius: 5px;
 }
 
@@ -147,8 +148,8 @@ li {
   border: 2px groove currentColor;
   border-radius: 5px;
   width: 30%;
-  height: 25px;
-  line-height: 25px;
+  height: 30px;
+  line-height: 30px;
   padding-left: 10px;
   overflow: hidden;
 }
@@ -164,7 +165,7 @@ border-color: #00b0ff;;
   background-color: #00b0ff;
   border: none;
   min-height: 1em;
-  height: 25px;
+  height: 30px;
   margin-left: 4px;
   margin-bottom: 4px;
   border-radius: 5px;
@@ -193,14 +194,8 @@ border-color: #00b0ff;;
   font-weight: 500;
 }
 
-form {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: .5em;
-}
-
-input.input-for-edit {
-  width: 100%;
+input {
+  width: 75%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -208,23 +203,13 @@ input.input-for-edit {
   border-radius: 4px;
 }
 
-.finish-edit-button {
-  width: 90%;
-  background-color: rgb(18, 179, 179);
-  border: none;
-  padding: 16px 32px;
-  text-decoration: none;
-  min-height: 1em;
-  margin: 4px 2px;
-  border-radius: .28571429rem;
-  color: white;
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-  font-weight: 700;
-  cursor: pointer;
+.ui.blue.positive.button {
+  width: 35%;
+  margin-left: 20px;
 }
 
-form button, form h5 {
-  margin: 20px 0;
+.red.minus.large.icon:hover {
+  cursor: pointer;
 }
 
 h1 {
@@ -237,8 +222,8 @@ h1 {
 }
 
 img.image-receipt {
-  max-height: 25rem;
-  max-width: 25rem;
+  max-height: 35rem;
+  max-width: 35rem;
 }
 
 

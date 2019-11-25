@@ -11,7 +11,7 @@ class SingleReceiptDetail extends Component {
   render() {
     const {receiptDetail, auth} = this.props
     const receiptDetailId = this.props.match.params.id
-    
+
     if (!auth.uid) return < Redirect to= '/signin'/>
     if (receiptDetail) {
       return (
@@ -42,6 +42,7 @@ const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id
   const receiptDetails = state.firestore.data.receiptDetails
   const receiptDetail = receiptDetails ? receiptDetails[id] : null
+  // console.log(receiptDetail)
   return {
     receiptDetail: receiptDetail,
     auth: state.firebase.auth
