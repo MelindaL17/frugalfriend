@@ -65,6 +65,7 @@ export const editReceiptDetails = (receiptId, updatedReceiptInfo) => {
       const receiptDetailRef = await firestore.collection('receiptDetails').doc(receiptId).update(updatedReceiptInfo)
 
       dispatch({type:'EDIT_RECEIPT', updatedReceiptInfo,receiptDetailRef})
+
     } catch (error) {
       dispatch ({type: 'EDIT_RECEIPT_ERROR', error})
     }

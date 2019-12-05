@@ -11,7 +11,6 @@ body {
 .main-container {
   display: grid;
   grid-template-columns: 2fr 1fr
-  
 }
 
 .nav-wrapper {
@@ -93,6 +92,7 @@ li {
   align-items: center;
   color: #DADDD8;
   background: #027BCE;
+
 }
 
 .receipt-row {
@@ -147,6 +147,7 @@ li {
   width: 30%;
   height: 30px;
   line-height: 30px;
+
   padding-left: 10px;
   overflow: hidden;
 }

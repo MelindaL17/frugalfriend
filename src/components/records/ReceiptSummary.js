@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { connect } from "react-redux";
-// import {Link} from 'react-router-dom'
 import { Icon } from "semantic-ui-react";
 import { deleteReceiptDetails } from "../../store/actions/receiptActions";
 import EditReceiptDetails from "./EditReceiptDetails";
+
 
 class ReceiptSummary extends Component {
   constructor(props) {
@@ -59,6 +59,7 @@ class ReceiptSummary extends Component {
             {/* <Link to={`/receiptDetail/${receiptDetail.id}`}>
               <Icon name="angle double right" size="large"/>
             </Link> */}
+
 
             <Icon
               name="picture"

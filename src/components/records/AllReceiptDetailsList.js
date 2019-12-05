@@ -19,6 +19,7 @@ class AllReceiptDetailsList extends Component {
           <ReceiptSummary receiptDetail={receiptDetail} key={receiptDetail.id}
           handleToggle={this.props.handleToggle}
           />
+
             )
           })
         }
