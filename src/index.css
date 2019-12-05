@@ -83,9 +83,6 @@ li {
 	        box-shadow: 0 10px 10px -10px black;
 }
 
-
-
-
 .grid-header {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr;
@@ -205,11 +202,48 @@ input {
 
 .ui.blue.positive.button {
   width: 35%;
-  margin-left: 20px;
+  color: #D4DCFF
+}
+
+.blue.picture.large.icon:hover {
+  cursor: pointer;
+}
+
+.edit-div {
+  display: inline-block;
+}
+
+.edit-div .edit-text {
+  visibility: hidden;
+  width: 60px;
+  padding: 5px 0;
+  z-index: 1;
+  left: 50%;
+  margin-left: -30px;
+  border-radius: 6px;
+}
+
+.edit-div:hover .edit-text {
+  cursor: pointer;
+  visibility: visible;
+}
+
+
+.minus-min {
+  display: none;
 }
 
 .red.minus.large.icon:hover {
   cursor: pointer;
+}
+
+.red.minus.large.icon:hover .minus-min {
+  display: block;
+}
+
+
+.delete-div {
+  display: inline-block;
 }
 
 h1 {

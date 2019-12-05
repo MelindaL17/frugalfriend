@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { connect } from "react-redux";
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import { Icon } from "semantic-ui-react";
 import { deleteReceiptDetails } from "../../store/actions/receiptActions";
 import EditReceiptDetails from "./EditReceiptDetails";
@@ -12,21 +12,21 @@ class ReceiptSummary extends Component {
     this.state = {
       isEditing: false
     };
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-  
+
   handleChange = (event, data) => {
     event.preventDefault();
     this.props.deleteReceipt(data.value);
   };
-  
+
   handleClick = () => {
     this.setState({
       isEditing: !this.state.isEditing
-    })
-  }
-  
+    });
+  };
+
   render() {
     const { receiptDetail } = this.props;
 
@@ -39,25 +39,49 @@ class ReceiptSummary extends Component {
           <span className="cell">{receiptDetail.where}</span>
           <span className="cell">${receiptDetail.totalAmount}</span>
           <span className="cell">
-            {this.state.isEditing ?
-            <Icon name="minus" color="red"onClick={this.handleClick} size="large"/> :
-            <Icon name="edit outline" color="blue" size="big" onClick={this.handleClick}/>
-            }
-            <Link to={`/receiptDetail/${receiptDetail.id}`}>
-              <Icon name="file image outline" size="big"/>
-            </Link>
-            
-            <Icon name="file image" size="large" onClick={this.props.handleToggle} value={receiptDetail.id}/>
+            {this.state.isEditing ? (
+              <div>
+                <span className="minus-min">Minimize</span>
+                <Icon
+                  name="minus"
+                  color="red"
+                  onClick={this.handleClick}
+                  size="large"
+                />
+              </div>
+            ) : (
+              <div className="edit-div">
+              <span className="edit-text">Edit</span>
+                <Icon name="edit outline" color="blue"
+                  size="big" onClick={this.handleClick} />
+              </div>
+            )}
+            {/* <Link to={`/receiptDetail/${receiptDetail.id}`}>
+              <Icon name="angle double right" size="large"/>
+            </Link> */}
 
             <Icon
-              name="delete" color="red" value={receiptDetail.id}
-              link onClick={this.handleChange} size="big"/>
+              name="picture"
+              color="blue"
+              size="large"
+              onClick={this.props.handleToggle}
+              value={receiptDetail.id}
+            />
+
+            <Icon
+              name="delete"
+              color="red"
+              value={receiptDetail.id}
+              link
+              onClick={this.handleChange}
+              size="big"
+              />
+
           </span>
         </div>
-        {this.state.isEditing ? 
+        {this.state.isEditing ? (
           <EditReceiptDetails receiptDetail={receiptDetail} />
-         : null
-        }
+        ) : null}
       </div>
     );
   }
@@ -70,7 +94,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(ReceiptSummary);
+export default connect(null, mapDispatchToProps)(ReceiptSummary);
