@@ -3,36 +3,42 @@ import {connect} from 'react-redux'
 // import { firestoreConnect } from 'react-redux-firebase' //binds to react
 // import {compose} from 'redux'
 import { Redirect } from 'react-router-dom'
-// import moment from 'moment'
+import { Icon } from "semantic-ui-react";
 
 class Spending extends Component {
   render() {
-    const { auth } = this.props
-    
+    const { auth, select, receiptDetail, handleClear } = this.props
+    console.log(this.props)
     if (!auth.uid) return < Redirect to= '/signin'/>
-    return (
-      <div className="spending-Componenet">Place Holder Spending Component
-
-      </div>
-    )
+    if (receiptDetail) {
+      return (
+        <div className="spending-Component">
+        {
+          select.selectedReceipt ?
+          <img className="image-receipt"src={receiptDetail.url}alt='http://via.placeholder.com/400x300' /> : null
+        }
+        
+        <Icon name="delete" color="red" 
+        onClick={handleClear} size="big"/>
+        </div>
+      )
+    } else {
+      return (
+      <div className="spending-Component"></div>
+      )
+    }
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const ID = ownProps.select.selectedReceipt
+  const receiptDetails = state.firestore.data.receiptDetails
+  const receiptDetail = receiptDetails ? receiptDetails[ID] : null
   return {
-    
     auth: state.firebase.auth,
-    receiptDetails: state.firestore.ordered.receiptDetails
+    receiptDetail: receiptDetail
   }
 }
-// const authID = 'ji'
 
-// export default compose(
-//   connect(mapStateToProps),
-//   firestoreConnect([
-//     {collection: 'receiptDetails', equalTo: ['authorId', authID]}
-//   ])
-// )(Spending)
-
-export default 
+export default
   connect(mapStateToProps)(Spending)

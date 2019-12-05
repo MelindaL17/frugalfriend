@@ -16,7 +16,10 @@ class AllReceiptDetailsList extends Component {
       </div>
         { receiptDetails && receiptDetails.map(receiptDetail => {
           return (
-          <ReceiptSummary receiptDetail={receiptDetail} key={receiptDetail.id} />
+          <ReceiptSummary receiptDetail={receiptDetail} key={receiptDetail.id}
+          handleToggle={this.props.handleToggle}
+          />
+
             )
           })
         }

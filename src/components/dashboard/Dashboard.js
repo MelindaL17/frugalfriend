@@ -11,20 +11,44 @@ class Dashboard extends Component {
   constructor (props) {
     super(props)
       this.state = {
-        userId: this.props.auth.uid
+        userId: this.props.auth.uid,
+        // showImage: false,
+        selectedReceipt: ''
       }
+      this.handleToggle = this.handleToggle.bind(this)
     }
     
+  handleToggle = (event, data) => {
+    if(this.state.selectedReceipt === data.value) {
+      this.setState({
+        selectedReceipt: ''
+      })
+    } else {
+      this.setState({
+        selectedReceipt: data.value
+      })
+    }
+  }
+  
+  handleClear = () => {
+    this.setState({
+      selectedReceipt: ''
+    })
+  }
+  //create function to clear selectedReceiptstate
   render() {
     const { receiptDetails, auth } = this.props
     if (!auth.uid) return < Redirect to= '/signin'/>
+
     return (
       <div className="main-container" >
         <div className="dashboard-component">
-          <AllReceiptDetailsList receiptDetails={receiptDetails}/>
+          <AllReceiptDetailsList
+          receiptDetails={receiptDetails}
+          handleToggle={this.handleToggle}/>
           <ImageUpload/>
         </div>
-          <Spending />
+          <Spending receiptDetails={receiptDetails} select={this.state} handleClear={this.handleClear}/>
       </div>
     )
   }
