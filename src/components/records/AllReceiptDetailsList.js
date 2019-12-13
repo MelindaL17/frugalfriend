@@ -9,7 +9,10 @@ class AllReceiptDetailsList extends Component {
   return (
     <div className="receipt-detail-table-container" >
       <div className="grid-header">
+        <div>
         <span className="cell">Date of Receipt</span>
+          
+        </div>
         <span className="cell">Place</span>
         <span className="cell">Total Spent</span>
         <span className="cell">Edits</span>

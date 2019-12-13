@@ -247,6 +247,30 @@ input {
   display: inline-block;
 }
 
+.image-preview {
+  margin-top: 3pt;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
+.black.delete.large.inverted.icon {
+  margin-left: 3pt;
+}
+.black.delete.large.inverted.icon:hover {
+  cursor: pointer;
+}
+
+img.image-receipt {
+  max-height: 35rem;
+  max-width: 25rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 15pt 10pt -10pt black;
+  -moz-box-shadow: 0 15pt 10pt -10pt black;
+       box-shadow: 0 15pt 10pt -10pt black;
+}
+
 h1 {
   text-align: center;
   width: 100%;
@@ -256,13 +280,6 @@ h1 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-img.image-receipt {
-  max-height: 35rem;
-  max-width: 35rem;
-}
-
-
-/* Signup and Login Design*/
 .login-signin-container {
   height: 80vh;
   width: 100%;
