@@ -1,26 +1,29 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-// import { firestoreConnect } from 'react-redux-firebase' //binds to react
-// import {compose} from 'redux'
 import { Redirect } from 'react-router-dom'
-import { Icon } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react"
+import PinchToZoom from 'react-pinch-and-zoom'
 
 class Spending extends Component {
+  
   render() {
     const { auth, select, receiptDetail, handleClear } = this.props
-    console.log(this.props)
+    // console.log('RECEIPT DETAIL',this.props.receiptDetail)
     if (!auth.uid) return < Redirect to= '/signin'/>
     if (receiptDetail) {
       return (
         <div className="spending-Component">
         {
           select.selectedReceipt ?
-          <img className="image-receipt"src={receiptDetail.url}alt='http://via.placeholder.com/400x300' /> : null
+          <div className="image-preview">
+            <PinchToZoom>
+              <img className="image-receipt"src={receiptDetail.url}alt='http://via.placeholder.com/400x300' />
+            </PinchToZoom>
+              <Icon name="delete" inverted color='black' onClick={handleClear} size="large"/>
+          </div> : null
         }
-        
-        <Icon name="delete" color="red" 
-        onClick={handleClear} size="big"/>
         </div>
+        
       )
     } else {
       return (

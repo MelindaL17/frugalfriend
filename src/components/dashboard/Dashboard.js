@@ -12,8 +12,8 @@ class Dashboard extends Component {
     super(props)
       this.state = {
         userId: this.props.auth.uid,
-        // showImage: false,
-        selectedReceipt: ''
+        selectedReceipt: '',
+        dateOrder: 'desc'
       }
       this.handleToggle = this.handleToggle.bind(this)
     }
@@ -35,7 +35,8 @@ class Dashboard extends Component {
       selectedReceipt: ''
     })
   }
-  //create function to clear selectedReceiptstate
+  
+  
   render() {
     const { receiptDetails, auth } = this.props
     if (!auth.uid) return < Redirect to= '/signin'/>
@@ -66,9 +67,9 @@ export default compose(
   connect(mapStateToProps),
   firestoreConnect((props) => [
     {
-      collection: 'receiptDetails', 
-        orderBy: ['date', 'desc'] 
-        ,where: [ 'authorId','==', !props.auth.uid ? null: props.auth.uid]
+      collection: 'receiptDetails',
+        orderBy: ['date', 'desc'],
+        where: [ 'authorId','==', !props.auth.uid ? null: props.auth.uid]
     }
   ])
 )(Dashboard)

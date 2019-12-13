@@ -42,7 +42,6 @@ const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id
   const receiptDetails = state.firestore.data.receiptDetails
   const receiptDetail = receiptDetails ? receiptDetails[id] : null
-  // console.log(receiptDetail)
   return {
     receiptDetail: receiptDetail,
     auth: state.firebase.auth

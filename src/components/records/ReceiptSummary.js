@@ -29,7 +29,7 @@ class ReceiptSummary extends Component {
 
   render() {
     const { receiptDetail } = this.props;
-
+    console.log(this.props)
     return (
       <div>
         <div className="receipt-row">
@@ -59,7 +59,6 @@ class ReceiptSummary extends Component {
             {/* <Link to={`/receiptDetail/${receiptDetail.id}`}>
               <Icon name="angle double right" size="large"/>
             </Link> */}
-
 
             <Icon
               name="picture"
