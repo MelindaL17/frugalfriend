@@ -92,7 +92,13 @@ li {
   align-items: center;
   color: #DADDD8;
   background: #027BCE;
+}
+.sort.up.icon:hover {
+  cursor: pointer;
+}
 
+.sort.down.icon:hover {
+  cursor: pointer;
 }
 
 .receipt-row {
@@ -241,7 +247,6 @@ input {
 .red.minus.large.icon:hover .minus-min {
   display: block;
 }
-
 
 .delete-div {
   display: inline-block;
