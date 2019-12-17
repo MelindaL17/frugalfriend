@@ -29,7 +29,7 @@ class ReceiptSummary extends Component {
 
   render() {
     const { receiptDetail } = this.props;
-    console.log(this.props)
+
     return (
       <div>
         <div className="receipt-row">
@@ -56,9 +56,6 @@ class ReceiptSummary extends Component {
                   size="big" onClick={this.handleClick} />
               </div>
             )}
-            {/* <Link to={`/receiptDetail/${receiptDetail.id}`}>
-              <Icon name="angle double right" size="large"/>
-            </Link> */}
 
             <Icon
               name="picture"
@@ -83,7 +80,7 @@ class ReceiptSummary extends Component {
           <EditReceiptDetails receiptDetail={receiptDetail} />
         ) : null}
       </div>
-    );
+    )
   }
 }
 

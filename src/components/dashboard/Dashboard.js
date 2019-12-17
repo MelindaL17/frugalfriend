@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import {compose} from 'redux'
 import { Redirect } from 'react-router-dom'
-import AllReceiptDetailsList from '../records/AllReceiptDetailsList';
+import DescendingReceiptDetailsList from '../records/DescendingReceiptDetailsList'
+import AscendingReceiptDetailsList from '../records/AscendingReceiptDetailsList'
 import ImageUpload from '../records/ImageUpload';
 import Spending from './Spending';
 
@@ -13,7 +14,7 @@ class Dashboard extends Component {
       this.state = {
         userId: this.props.auth.uid,
         selectedReceipt: '',
-        dateOrder: 'desc'
+        sortByDescending: true
       }
       this.handleToggle = this.handleToggle.bind(this)
     }
@@ -36,6 +37,12 @@ class Dashboard extends Component {
     })
   }
   
+  handleSortToggle = () => {
+    this.setState({
+      sortByDescending: !this.state.sortByDescending
+    })
+  }
+  
   
   render() {
     const { receiptDetails, auth } = this.props
@@ -44,9 +51,17 @@ class Dashboard extends Component {
     return (
       <div className="main-container" >
         <div className="dashboard-component">
-          <AllReceiptDetailsList
+          {
+            this.state.sortByDescending ?
+          <DescendingReceiptDetailsList
           receiptDetails={receiptDetails}
-          handleToggle={this.handleToggle}/>
+          handleToggle={this.handleToggle}
+          handleSortToggle={this.handleSortToggle}/> :
+          <AscendingReceiptDetailsList
+          receiptDetails={receiptDetails}
+          handleToggle={this.handleToggle}
+          handleSortToggle={this.handleSortToggle}/>
+        }
           <ImageUpload/>
         </div>
           <Spending receiptDetails={receiptDetails} select={this.state} handleClear={this.handleClear}/>
@@ -68,8 +83,7 @@ export default compose(
   firestoreConnect((props) => [
     {
       collection: 'receiptDetails',
-        orderBy: ['date', 'desc'],
-        where: [ 'authorId','==', !props.auth.uid ? null: props.auth.uid]
+      where: [ 'authorId','==', !props.auth.uid ? null: props.auth.uid]
     }
   ])
 )(Dashboard)
