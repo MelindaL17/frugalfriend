@@ -4,17 +4,20 @@ import { firestoreConnect } from 'react-redux-firebase'
 import {compose} from 'redux'
 import { Icon } from "semantic-ui-react";
 import ReceiptSummary from './ReceiptSummary'
+import SearchBar from './SearchBar';
 
 class AscendingReceiptDetailsList extends Component { 
 
   render () {
-    const{receiptDetails, handleSortToggle} = this.props
+    const{receiptDetails, handleDateSortToggle} = this.props
+console.log(receiptDetails)
   return (
     <div className="receipt-detail-table-container" >
+      <SearchBar/>
       <div className="grid-header">
         <div>
         <span className="cell">Date of Receipt</span>
-        < Icon name="sort down" onClick={handleSortToggle}/>
+        <Icon name="sort down" onClick={handleDateSortToggle}/>
         </div>
         <span className="cell">Place</span>
         <span className="cell">Total Spent</span>

@@ -76,6 +76,8 @@ li {
 .receipt-detail-table-container {
   display: grid;
   margin: 10px;
+  max-height: 600px;
+  overflow: hidden;
   margin-bottom: 20px;
   -webkit-box-shadow: 0 10px 10px -10px black;
 	   -moz-box-shadow: 0 10px 10px -10px black;
